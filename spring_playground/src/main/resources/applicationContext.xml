@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean name="b" class="com.lti.model.B">
+	<property name="text" value="Assigned from XML"></property>
+	</bean>
+	
+	<bean name="a" class="com.lti.model.A">
+	<constructor-arg>
+		<ref bean="b"></ref>
+	</constructor-arg>
+	</bean>
+	
+	<bean name="c" class="com.lti.model.C">
+	<property name="text" value="Value Of C Text Assigned from XML"></property>
+	<property name="x" value="5"></property>
+	</bean>
+	
+	<bean name="c1" class="com.lti.model.C">
+	<constructor-arg value="10" type="int"/>
+	<constructor-arg value="Tom" />
+	</bean>
+
+	<bean name="c2" class="com.lti.model.C">
+	<constructor-arg value="10"/>
+	<constructor-arg value="20" type="int" />
+	</bean> 
+
+	<bean name="foo" class="com.lti.model.D">
+	<property name="n" value="LTI"/>
+	</bean> 
+
+	<bean name="e" class="com.lti.model.E">
+	<property name="d" ref="foo"></property>
+	</bean>
+
+	<bean name="tBean" class="com.lti.model.TestBean"></bean>
+</beans>
